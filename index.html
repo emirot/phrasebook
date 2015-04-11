@@ -2,23 +2,70 @@
 <html ng-app="myApp">
 
   <head>
+       <script data-require="jquery@*" data-semver="2.1.3" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <link data-require="font-awesome@*" data-semver="4.3.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link data-require="semantic-ui@*" data-semver="1.11.5" rel="stylesheet" href="http://cdn.jsdelivr.net/semantic-ui/1.11.5/semantic.min.css" />
+    <script data-require="semantic-ui@*" data-semver="1.11.5" src="http://cdn.jsdelivr.net/semantic-ui/1.11.4/semantic.min.js"></script>
     <script data-require="angular.js@1.2.26" data-semver="1.2.26" src="https://code.angularjs.org/1.2.26/angular.js"></script>
-    <link rel="stylesheet" href="style.css" />
+
+  <!--  <link rel="stylesheet" href="style.css" /> -->
     <script src="script.js"></script>
   </head>
 
   <body ng-controller="MainController">
     <h1>Hello Plunker! {{name}}</h1>
-    <div>
-      <input type="file" on-read-file="showContent($fileContent)" />
+    <div class="ui steps">
+      <div class="step">
+        <i class="truck icon"></i>
+        <div class="content">
+          <div class="title">Upload</div>
+          <div class="description">Upload your phrasebook file</div>
+        </div>
+      </div>
+      <div class="step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Learn</div>
+          <div class="description">more vocabulary</div>
+        </div>
+      </div>
+      <div class=" step">
+        <i class="info icon"></i>
+        <div class="content">
+          <div class="title">See your score</div>
+        </div>
+      </div>
     </div>
+    <div class="ui segment">
+      <div>
+        <input type="file" on-read-file="showContent($fileContent)" />
+      </div>
+    </div>
+    <table class="ui celled table">
+      <thead>
+        <tr>
+          <th>{{ Language1 }}</th>
+          <th>{{ Language2 }}</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="">
+          <td>
+            <p>{{ leftinput }}</p>
+            </td>
+          <td>
+                   <input type="text" ng-model="rightinput" />
+      <input type="submit" value="validate" ng-click="checkCorrect()" />
+
+          </td>
+          <td>Requires call</td>
+        </tr>
+      </tbody>
+    </table>
     <form>
 
-      English : {{leftinput}}  French: <input type="text" ng-model="rightinput"/>
-      <input type="submit" value="validate" ng-click="checkCorrect()">
     </form>
-
-
   </body>
 
 </html>

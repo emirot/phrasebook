@@ -29,13 +29,21 @@ var MainController = function ($scope){
 
     if ($scope.i != $scope.j){
 
-      $scope.lelftinput = scope.tab[$scope.j][2];
-      console.log("left:", $scope.tab[$scope.j][2]);
-      console.log("right:", $scope.tab[$scope.j][3]);
+      $scope.lelftinput = $scope.tab[$scope.j][2];
+
+      console.log("left:", $scope.lelftinput);
+      console.log("right:",  $scope.rightinput);
+
     if ($scope.rightinput === $scope.tab[$scope.j][3])
     {
         console.log("Good");
-        $scope.j++;
+        $scope.j = $scope.j+1;
+        le = $scope.tab[$scope.j][2];
+        $scope.leftinput = le;
+        $scope.rightinput = ""
+        console.log("left input",   $scope.lelftinput  );
+        //$scope.j++;
+
     }
     else{
       console.log("Not Good");
